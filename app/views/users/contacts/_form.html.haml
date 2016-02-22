@@ -1,0 +1,20 @@
+= simple_form_for [:users, @contact] do |f|
+  - if @contact.errors.any?
+    - @contact.errors.full_messages.each do |error_message|
+      = content_tag :div, error_message, class: "alert alert-danger"
+  .row
+    .col-md-6
+      = f.input :first_name, input_html:{ class: 'form-control' }
+      = f.input :last_name, input_html: { class: 'form-control' }
+      = f.input :email, input_html: { class: 'form-control' }
+      = f.input :age, input_html: { class: 'form-control' }
+      = f.input :city, input_html: { class: 'form-control' }
+
+    .col-md-6
+      = f.label :dob
+      = f.text_field :dob,  class: 'form-control'
+      = f.input :state, input_html: { class: 'form-control' }
+      = f.input :mobile_number, input_html: { class: 'form-control' }
+      = f.input :landline_number, input_html: { class: 'form-control' }
+      %br
+      = f.button :submit, class: 'btn btn-primary form-control'
