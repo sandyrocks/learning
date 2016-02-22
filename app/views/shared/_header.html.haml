@@ -1,0 +1,11 @@
+.navbar.navbar-inverse
+  .container-fluid
+    .navbar-header 
+      = link_to "Contants", root_path, class: "navbar-brand"
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li= link_to "Sign up", new_user_registration_path
+        -if user_signed_in?
+          %li= link_to "Log out", destroy_user_session_path, method: :delete, class: 'navbar-right'  
+        -else
+          %li= link_to "Log in", new_user_session_path, class: 'navbar-right'
