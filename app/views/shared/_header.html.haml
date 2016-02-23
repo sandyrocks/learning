@@ -9,3 +9,4 @@
           %li= link_to "Log out", destroy_user_session_path, method: :delete, class: 'navbar-right'  
         -else
           %li= link_to "Log in", new_user_session_path, class: 'navbar-right'
+        %li= link_to "Contact", users_contacts_path
