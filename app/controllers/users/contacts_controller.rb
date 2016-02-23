@@ -1,9 +1,8 @@
 class Users::ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
-  respond_to :html, :json
+
   def index
     @contacts = Contact.all
-    respond_with @contacts
   end
 
   def new
@@ -26,6 +25,11 @@ class Users::ContactsController < ApplicationController
   end
 
   def update
+    if @contact.update(contact_params)
+      redirect_to users_contact_path(@contact)
+    else
+      render 'edit'
+    end
   end
 
   def destory 

@@ -1,0 +1,9 @@
+.row
+  .col-md-offset-2.col-md-6
+    .panel.panel-primary
+      .panel-heading
+        %h3 Group
+      .panel-body
+        %ul.list-group
+          - @groups.each do |group|
+            %li.list-group-item=group.name.capitalize
