@@ -5,5 +5,5 @@
         %h3 Group
       .panel-body
         %ul.list-group
-          - @groups.each do |group|
-            %li.list-group-item=group.name.capitalize
+          - Contact.get_group_by_contact_count.each do |group|
+            %li.list-group-item= "#{group.name.capitalize}(#{group.counter})"

@@ -23,6 +23,8 @@ gem 'devise-bootstrap-views'
 gem 'haml-rails'
 gem 'awesome_print'
 gem 'simple_form'
+gem 'bootstrap-datepicker-rails'
+
 
 group :development, :test do
   gem 'byebug'
