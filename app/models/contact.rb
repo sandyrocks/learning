@@ -11,6 +11,7 @@ class Contact < ActiveRecord::Base
     Contact.joins(:group).select("
       groups.name,
       contacts.id,
+      groups.id,
       count(contacts.group_id) as counter
     ").group("contacts.group_id")
   end

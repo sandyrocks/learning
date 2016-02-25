@@ -3,6 +3,15 @@ class Users::GroupsController < ApplicationController
 
   def index
     @groups = Group.all
+    @contacts = if params[:group_id]
+      Contact.where(group_id: params[:group_id])
+    else
+      Contact.all
+    end
+    respond_to do |format|
+      format.html
+      format.js if request.xhr?
+    end
   end
 
   def new

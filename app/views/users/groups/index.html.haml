@@ -1,9 +1,16 @@
 .row
-  .col-md-offset-2.col-md-6
-    .panel.panel-primary
+  .col-md-4
+    .panel.panel-success
       .panel-heading
         %h3 Group
       .panel-body
         %ul.list-group
           - Contact.get_group_by_contact_count.each do |group|
-            %li.list-group-item= "#{group.name.capitalize}(#{group.counter})"
+            %li.list-group-item= link_to "#{group.name.capitalize}(#{group.counter})", users_groups_path+"?group_id=#{group.id}", remote: true
+  .col-md-8
+    .panel.panel-primary
+      .panel-heading
+        %h3 Contacts
+      .panel-body
+        .contacts
+          = render "contacts"
